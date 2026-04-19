@@ -11,7 +11,7 @@ on:
 jobs:
   generate-sbom:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v3
@@ -19,10 +19,6 @@ jobs:
     - name: Install Syft
       run: |
         curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
-
-    - name: Generate SBOM
-      run: |
-        syft docker.io/library/nginx:latest -o cyclonedx-xml > sbom.xml
 
     - name: Generate SBOM                      #Modified
       run: |
